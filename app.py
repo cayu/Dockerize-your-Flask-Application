@@ -7,7 +7,7 @@ def hello_world():
 
 @app.route('/name/<name>', methods=['GET'])
 def name(name):
-    return 'Hello %s' + name
+    return 'Hello ' + name
 
 if __name__ == '__main__':
     app.run(port=5000,debug=True,host='0.0.0.0')
