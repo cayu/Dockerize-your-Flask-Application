@@ -1,3 +1,13 @@
+# Intro
+
+La idea es aprender a programar cosas simples en Flask, poderlas dockerizar o publicar en Heroku. 
+
+- Manejo de argumentos en la URL
+- Implementar templates
+- Manejo de bases de datos
+
+# Referencias
+
 Codigo inspirado en 
 - https://runnable.com/docker/python/dockerize-your-flask-application
 - https://github.com/leah/hello-flask-heroku/
