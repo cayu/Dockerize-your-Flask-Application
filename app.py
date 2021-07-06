@@ -1,9 +1,9 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, url_for
 from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
 
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:////tmp/test.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///db.sqlite'
 db = SQLAlchemy(app)
 
 class Todo(db.Model):
@@ -18,6 +18,25 @@ def hello_world():
 @app.route('/name/<name>', methods=['GET'])
 def name(name):
     return 'Hello ' + name
+
+@app.route('/edit')
+def edit()
+    todo_list = Todo.query.all()
+    return render_template("base.html", todo_list=todo_list)
+
+@app.route('/all')
+def all():
+    todo_list = Todo.query.all()
+    return render_template("list.html", todo_list=todo_list)
+
+@app.route('/add', method['POST'])
+def add()
+    title=request.form.get('title')
+    new_todo= Todo(title=title, complete=_False)
+    db.session.add(new_todo)
+    db.session.commit()
+    return redirect(url_for("edit"))
+
 
 @app.route('/base')
 def base():
